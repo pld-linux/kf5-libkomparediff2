@@ -4,12 +4,12 @@
 
 Summary:	libkomparediff2
 Name:		kde4-%{orgname}
-Version:	4.12.4
+Version:	4.13.0
 Release:	1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	86e72aea4c1e798e2d4638bd99a3a4ef
+# Source0-md5:	d85d7e853ec3d8706e1a40de3fb939bd
 BuildRequires:	OpenAL-devel
 BuildRequires:	QtNetwork-devel >= %{qtver}
 BuildRequires:	automoc4 >= 0.9.88
