@@ -1,23 +1,37 @@
-%define		_state		stable
+%define		_state		unstable
 %define		orgname		libkomparediff2
-%define		qtver		4.8.1
+%define		qtver		5.5.1
 
 Summary:	libkomparediff2
-Name:		kde4-%{orgname}
-Version:	4.14.3
-Release:	1
+Name:		kf5-%{orgname}
+Version:	16.07.90
+Release:	0.2
 License:	LGPL
 Group:		X11/Libraries
-Source0:	http://download.kde.org/%{_state}/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	b03217f9ad12773ff61f5672a6f5085f
-BuildRequires:	OpenAL-devel
-BuildRequires:	QtNetwork-devel >= %{qtver}
-BuildRequires:	automoc4 >= 0.9.88
-BuildRequires:	cmake >= 2.8.0
-BuildRequires:	kde4-kdelibs-devel >= %{version}
-BuildRequires:	libsndfile-devel
-BuildRequires:	qt4-build >= %{qtver}
-BuildRequires:	qt4-qmake >= %{qtver}
+Source0:	http://download.kde.org/%{_state}/applications/%{version}/src/%{orgname}-%{version}.tar.xz
+# Source0-md5:	1e54e4454b78bf296e51397a12093ca0
+BuildRequires:	Qt5Widgets-devel
+BuildRequires:	Qt5Test-devel
+BuildRequires:	Qt5Xml-devel
+BuildRequires:	Qt5DBus-devel
+BuildRequires:	Qt5Network-devel
+BuildRequires:	kf5-extra-cmake-modules
+BuildRequires:	kf5-ki18n-devel
+BuildRequires:	kf5-kconfig-devel
+BuildRequires:	kf5-kcodecs-devel
+BuildRequires:	kf5-kcoreaddons-devel
+BuildRequires:	kf5-kxmlgui-devel
+BuildRequires:	kf5-kio-devel
+BuildRequires:	kf5-kservice-devel
+BuildRequires:	kf5-kbookmarks-devel
+BuildRequires:	kf5-kconfigwidgets-devel
+BuildRequires:	kf5-kwidgetsaddons-devel
+BuildRequires:	kf5-kcompletion-devel
+BuildRequires:	kf5-kauth-devel
+BuildRequires:	kf5-kitemviews-devel
+BuildRequires:	kf5-kjobwidgets-devel
+BuildRequires:	kf5-solid-devel
+BuildRequires:	cmake >= 2.8.12
 BuildRequires:	rpmbuild(macros) >= 1.600
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,8 +42,8 @@ libkomparediff2
 Summary:	Development files for libkomparediff2
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	kde4-kdelibs-devel >= %{version}
 Obsoletes:	kde4-kdegame-devel
+Conflicts:	kde4-libkomparediff2-devel
 
 %description devel
 Development files for libkomparediff2.
@@ -68,10 +82,10 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %ghost %{_libdir}/libkomparediff2.so.?
-%attr(755,root,root) %{_libdir}/libkomparediff2.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkomparediff2.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkomparediff2.so
-%{_libdir}/cmake/libkomparediff2
+%{_libdir}/cmake/LibKompareDiff2
 %{_includedir}/libkomparediff2
