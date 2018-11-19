@@ -1,15 +1,15 @@
-%define		_state		unstable
+%define		_state		stable
 %define		orgname		libkomparediff2
 %define		qtver		5.5.1
 
 Summary:	libkomparediff2
 Name:		kf5-%{orgname}
-Version:	16.07.90
-Release:	0.2
+Version:	18.08.3
+Release:	0.1
 License:	LGPL
 Group:		X11/Libraries
 Source0:	http://download.kde.org/%{_state}/applications/%{version}/src/%{orgname}-%{version}.tar.xz
-# Source0-md5:	1e54e4454b78bf296e51397a12093ca0
+# Source0-md5:	80f64137fc73ffdfadcac9e356319645
 BuildRequires:	Qt5Widgets-devel
 BuildRequires:	Qt5Test-devel
 BuildRequires:	Qt5Xml-devel
@@ -73,13 +73,15 @@ install -d $RPM_BUILD_ROOT/var/games
 # remove locolor icons
 rm -rf $RPM_BUILD_ROOT%{_iconsdir}/locolor
 
+%find_lang %{orgname} --all-name --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post			-p /sbin/ldconfig
 %postun			-p /sbin/ldconfig
 
-%files
+%files -f %{orgname}.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %ghost %{_libdir}/libkomparediff2.so.?
 %attr(755,root,root) %{_libdir}/libkomparediff2.so.*.*
